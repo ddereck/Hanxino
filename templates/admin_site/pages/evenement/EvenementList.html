@@ -1,0 +1,41 @@
+{% extends "admin_site/main.html" %}
+
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Liste des Evénements</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Cover</th>
+                <th>Titre</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evenement in evenements %}
+            <tr>
+                <td><img src="{{ evenement.image.url }}" alt="{{ evenement.titre }}" width="100"></td>
+                <td><img src="{{ evenement.cover.url }}" alt="{{ evenement.titre }}" width="100"></td>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.date }}</td>
+                <td>{{ evenement.lieu }}</td>
+                <td>
+                    <a href="{% url 'EvenementUpdate' evenement.id %}" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="{% url 'EvenementDelete' evenement.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'EvenementCreate' %}" class="btn btn-success mt-3">Créer un nouvel événement</a>
+</div>
+<br><br><br><br>
+{% endblock %}

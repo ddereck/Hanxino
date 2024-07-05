@@ -1,0 +1,14 @@
+{% load static %}
+
+
+<section>
+    <div class="success">
+        <h2>Votre paiement pour l'événement {{ nom_evenement }} a été traité avec succès.</h2>
+        <h4>Un mail vous a été envoyé, veuillez consulter votre boîte de reception pour télécharger votre ticket.</h4>
+        <p>Montant payé : {{ montant_paye }}</p>
+
+        <span>Retourner à l'accueil !<br>
+            <a href="{% url 'home' %}"><i class="fa fa-home"></i> Accueil</a>
+        </span>
+    </div>
+</section>

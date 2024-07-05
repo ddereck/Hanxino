@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+    <br><br><br><br>
+    <!-- Countdown Section Begin -->
+    {% include "partials/countdown.html" %} 
+    <!-- Countdown Section End -->
+
+    <!-- Tours Section Begin -->
+    <section class="tours spad">
+        <div class="container">
+            {% for concert in concerts %}
+            <div class="row">
+                <div class="col-lg-6 order-lg-1">
+                    <div class="tours__item__text">
+                        <h2>{{concert.titre}}</h2>
+                        <div class="tours__text__widget">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-clock-o"   style="color: #CCB84A"></i>
+                                    <span>{{concert.heure}}</span>
+                                    <span>{{concert.date}}</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-map-marker"   style="color: #CCB84A"></i>
+                                    {{concert.lieu}}
+                                </li>
+                            </ul>
+                            <div class="price"   style="background: #CCB84A; color: black; border-radius: 10px;">{{ concert.prix }} FCFA</div>
+                        </div>
+                        <div class="tours__text__desc">
+                            <p>{{concert.description}}</p>
+                        </div>
+                        <div class="buy__tickets">
+                            <button class="primary-btn" style="background: #CCB84A; color: black; border-style: none">RESERVATION DISPONIBLE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2">
+                    <div class="tours__item__pic">
+                        <img src="{{concert.image.url}}" alt="">
+                    </div>
+                </div>
+            </div>
+            {%endfor %}
+        </div>
+        
+    </section>
+    <!-- Tours Section End -->
+
+{% endblock content %}

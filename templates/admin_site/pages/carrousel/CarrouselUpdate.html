@@ -1,0 +1,15 @@
+{% extends "admin_site/main.html" %}
+
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <h1>Modifier Carrousel</h1>
+    <form method="post" enctype="multipart/form-data" class="mt-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+</div>
+<br><br><br><br>
+{% endblock %}

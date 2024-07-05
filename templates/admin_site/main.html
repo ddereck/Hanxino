@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr-FR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HANXINO">
+    <meta name="keywords" content="Hanxino, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RSHEYI | Tableau de bord</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Other head elements -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nowfont.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/rockville.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="icon" href="{% static 'img/lgo.png' %}" type="image/x-icon">
+
+
+    <link href="{% static 'assets/css/fontawesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/brands.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/solid.css' %}" rel="stylesheet" />
+
+    {% block extrastyle %}{% endblock extrastyle %}
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- start header -->
+    {% include 'admin_site/partials/header.html' %}
+    <!-- header end -->
+    <!-- start content -->
+      {% block content %}
+    
+      {% endblock content %} 
+    <!-- content end -->
+    <!-- Start Footer Area -->
+    {% include 'admin_site/partials/footer.html' %}
+    <!-- End Footer area -->
+
+
+
+
+ <!-- Js Plugins -->
+ <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+ <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+ <script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+ <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+ <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+ <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+ <script src="{% static 'js/main.js' %}"></script>
+
+<!-- Music Plugin -->
+
+<!-- jQuery script link -->
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- magnific popup jQuery script link -->
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<!-- Integration kkiapay-->
+<script src="https://cdn.kkiapay.me/k.js">
+
+
+    
+    <script>
+        $(".header__menu").ready(function(){
+            $('.header__menu ul li a').click(function(){
+                // Supprimer la classe 'active' de tous les liens du menu
+                $('.header__menu ul li a').removeClass('active');
+        
+                // Ajouter la classe 'active' à l'élément cliqué
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

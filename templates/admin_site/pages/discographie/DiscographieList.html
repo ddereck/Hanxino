@@ -1,0 +1,41 @@
+{% extends "admin_site/main.html" %}
+
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Liste des Discographies</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Détail</th>
+                <th>Titre</th>
+                <th>Prix</th>
+                <th>Link</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for discographie in discographies %}
+            <tr>
+                <td><img src="{{ discographie.image.url }}" alt="{{ discographie.image.name }}" style="width: 100px; height: auto;"></td>
+                <td><img src="{{ discographie.detail.url }}" alt="{{ discographie.detail.name }}" style="width: 100px; height: auto;"></td>
+                <td>{{ discographie.titre }}</td>
+                <td>{{ discographie.prix }}</td>
+                <td><a href="{{ discographie.link }}">{{ discographie.link }}</a></td>
+                <td>
+                    <a href="{% url 'DiscographieUpdate' discographie.id %}" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="{% url 'DiscographieDelete' discographie.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'DiscographieCreate' %}" class="btn btn-success mt-3">Ajouter une nouvelle discographie</a>
+</div>
+<br><br><br><br>
+{% endblock %}

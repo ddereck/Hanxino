@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Breadcrumb Begin -->
+    <br><br><br><br><br><br>
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> Accueil</a>
+                        <span>Discographie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Discography Section Begin -->
+    <section class="discography spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-title">
+                        <h2>Albums Disponibles</h2>
+                        <h1>Discography</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {%for discographie in discographies%}
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="discography__item">
+                        <div class="discography__item__pic">
+                            <a href="{{discographie.detail.url}}" class="image">
+                                <img src="{{discographie.image.url}}" alt="">
+                            </a>
+                        </div>
+                        <div class="discography__item__text">
+                            <span style="color: #CCB84A">{{ discographie.prix }} FCFA</span>
+                            <h4>{{discographie.titre}}</h4>
+                            {% comment %} <button class="primary-btn" style="background: #CCB84A; color: black">Commander</button> {% endcomment %}
+                            <a href="{{ discographie.link }}"><img src="{% static 'img/discography/link-0.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Discography Section End -->
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'admin_site/main.html' %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <h1>Supprimer Lifestyle</h1>
+    <p>Êtes-vous sûr de vouloir supprimer ce lifestyle ?</p>
+    <form method="post" class="mt-3">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+        <a class="btn btn-secondary" href="{% url 'LifestyleList' %}">Annuler</a>
+    </form>
+</div>
+<br><br><br><br>
+{% endblock %}

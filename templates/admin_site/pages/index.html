@@ -1,0 +1,237 @@
+{% extends 'admin_site/main.html' %}
+{% load static %}
+{% block content %}
+
+<br><br><br><br><br><br><br><br><br>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="row align-items-center my-3">
+                <div class="col">
+                    <h2 class="page-title">Contenu du site</h2>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-lg btn-primary"><span class="fe fe-plus fe-16 mr-3"></span>Gestion</button>
+                </div>
+            </div>
+            <div class="file-container border-top">
+                <div class="file-panel mt-4">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'CarrouselList' %}">
+                                                <strong>Carrousel</strong>
+                                            </a>
+                                            <br />
+                                            <span class="badge badge-light text-muted">{{ carousel_count }} carrousel(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col carrousel -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'MorceauList' %}">
+                                                <strong>Morceau</strong>
+                                            </a>
+                                            <br/>
+                                            <span class="badge badge-light text-muted">{{ morceau_count }} morceau(x)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col morceau -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'EvenementList' %}">
+                                                <strong>Événement</strong>
+                                            </a>
+                                            <br />
+                                            <span class="badge badge-light text-muted">{{ evenement_count }} événement(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col événement -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'AudioList' %}">
+                                                <strong>Audio</strong>
+                                            </a>
+                                            <br />
+                                            <span class="badge badge-light text-muted">{{ audio_count }} audio(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col audio -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'AlbumList' %}">
+                                                <strong>Album</strong>
+                                            </a>
+                                            <br />
+                                            <span class="badge badge-light text-muted">{{ album_count }} album(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col album -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'DiscographieList' %}">
+                                                <strong>Discographie</strong>
+                                            </a>
+                                            <br />
+                                            <span class="badge badge-light text-muted">{{ discographie_count }} discographie(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col discographie -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'ProchainconcertList' %}">
+                                                <strong>Prochain Concert</strong>
+                                            </a>
+                                            <br />
+                                            <span class="badge badge-light text-muted">{{ prochainconcert_count }} concert(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col prochain concert -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'ConcertList' %}">
+                                                <strong>Concert</strong>
+                                            </a>
+                                            <br />
+                                            <span class="badge badge-light text-muted">{{ concert_count }} concert(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col concert -->
+
+                        <!-- New entries for Short, Lifestyle, Formation -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'ShortList' %}">
+                                                <strong>Short</strong>
+                                            </a>
+                                            <br/>
+                                            <span class="badge badge-light text-muted">{{ short_count }} short(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'LifestyleList' %}">
+                                                <strong>Lifestyle</strong>
+                                            </a>
+                                            <br/>
+                                            <span class="badge badge-light text-muted">{{ lifestyle_count }} lifestyle(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col -->
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-body file-list">
+                                    <div class="d-flex align-items-center">
+                                        <div class="circle circle-md bg-secondary">
+                                            <span class="fe fe-folder fe-16 text-white"></span>
+                                        </div>
+                                        <div class="flex-fill ml-4 fname">
+                                            <a href="{% url 'FormationList' %}">
+                                                <strong>Formation</strong>
+                                            </a>
+                                            <br/>
+                                            <span class="badge badge-light text-muted">{{ formation_count }} formations(s)</span>
+                                        </div>
+                                    </div>
+                                </div> <!-- .card-body -->
+                            </div> <!-- .card -->
+                        </div> <!-- .col -->
+
+                    </div> <!-- .row -->
+                </div> <!-- .file-panel -->
+            </div> <!-- .file-container -->
+        </div> <!-- .col -->
+    </div> <!-- .row -->
+</div> <!-- .container-fluid -->
+{% endblock content %}
+<br><br><br><br><br><br><br><br><br><br><br><br>

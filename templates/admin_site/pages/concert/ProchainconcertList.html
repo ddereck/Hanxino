@@ -1,0 +1,39 @@
+{% extends "admin_site/main.html" %}
+
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Prochain Concert</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Date</th>
+                <th>Titre</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prochainconcert in prochainconcerts %}
+            <tr>
+                <td><img src="{{ prochainconcert.image.url }}" alt="{{ prochainconcert.image.name }}" style="width: 100px; height: auto;"></td>
+                <td>{{ prochainconcert.date }}</td>
+                <td>{{ prochainconcert.titre }}</td>
+                <td>{{ prochainconcert.prix }}</td>
+                <td>
+                    <a href="{% url 'ProchainconcertUpdate' prochainconcert.id %}" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="{% url 'ProchainconcertDelete' prochainconcert.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'ProchainconcertCreate' %}" class="btn btn-success mt-3">Ajouter un nouveau concert</a>
+</div>
+<br><br><br><br>
+{% endblock %}

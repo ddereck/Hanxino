@@ -1,0 +1,152 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    <!-- Breadcrumb Begin -->
+    <br><br><br><br><br><br>
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'home' %}"><i class="fa fa-home"></i> Accueil</a>
+                        <span>Biographie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Skills Section Begin -->
+    <section class="skills spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="skills__content" style="background: black; opacity: 95%; padding-top: 20px; height: 550px;">
+                        <div class="section-title">
+                            <h2 style="color: #CCB84A; opacity: None;">Raphaël Sheyi</h2>
+                            <h1>Bio</h1>
+                            <p style="padding-top: 20px; text-align: justify;">Né un 26 octobre au Nigéria, Oluwachéyi Raphaël HOUEDECOUTIN, artistiquement connu sous le nom de Shéyi, est un artiste musicien auteur-compositeur et interprète d’envergure au Bénin et ailleurs. Il est marié et père de famille, il fait ses débuts en tant que percussionniste, s’impose et force aujourd’hui l’admiration de tous, non seulement dans ce milieu, mais aussi dans le rang des chanteurs et musiciens d’harmonie au Bénin, son pays d’origine. Son talent lui a permis d’exporter l’univers musical du Bénin au-delà des frontières. Fils de parents musiciens, Shéyi est moulé dans une chaleur familiale quotidienne où mélodies et rythmes sont la prédilection. Ainsi fit-il ses premières expériences à l’âge de 4 ans dans la musique traditionnelle. Cette prédisposition a concouru à un shéyi dont le sens musical reste aujourd’hui très original, moderne certes, mais qui puise ses racines dans les richesses rythmiques et mélodiques de la tradition.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-0">
+                    <div class="skills__video set-bg" data-setbg="{% static 'img/about/4.png' %}" style="height: 550px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section End -->
+
+    <!-- About Section Begin -->
+    <section class="about about--page spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about__pic">
+                        <img src="{% static 'img/about/33.jpg' %}" alt=""  style="height: 650px; width: 500px; padding-top: 26px">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <h2>Il a entendu quelque chose qu'il savait être de la musique</h2>
+                        </div>
+                        <p style="text-align: justify;">Sheyi a notamment été percussionniste chanteur de Sagbohan Danialou, Nel Oliver, Jolidon Lafia, Tohon Stan, percussionniste émérite et choriste de John Arcadius, quelques figures de la musique béninoise ; des groupes tels que Black Santiago, Symbiose et autres. Il a également connu l’expérience de la direction musicale de plusieurs vedettes comme Anna Teko, Sessimè, Richard Flash, Petit Miguelito, Zeynab, etc. Avec ce􀆩e dernière, il a sorti son single Ma yavio en 2007. Plus tôt en 2005, le titre Dotou fut l’un des titres phares des deux albums produits avec son emblématique groupe de Gospel Christi Vi. Il a aussi connu une expérience musicale internationale qui sort du commun. 2008, Shéyi partit pour Bruxelles où il obtint une bourse à l’académie d’été pour chant et trombone, ainsi qu’au conservatoire des Lundis d’Hortense à Namur (Belgique) pour la formation des formateurs en chant, trombone et percussion. Il garde le souvenir de grands moments du métier notamment des concerts exceptionnels, des concerts d’experts au niveau de musicalité élevé.</p>
+                        <img src="{% static 'img/about/signatur.png' %}" alt="" style="margin-left: 98px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- About Pic Begin -->
+    <div class="about-pic">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Albums Photos </h2>
+                        <h1>Succès&Parcours </h1>
+                    </div>
+                </div>
+                <div class="about_pic__slider owl-carousel">
+                    {% for discotheque in discotheques %}
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <a href="{{discotheque.image.url}}" class="imagepop">
+                                <img src="{{ discotheque.image.url }}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        {% comment %} {% if forloop.counter|divisibleby:4 and not forloop.last %}
+                            </div><div class="row">
+                        {% endif %} {% endcomment %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- About Pic End -->
+
+    <!-- About Services Section Begin -->
+    <section class="about-services spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-title">
+                        <h2>Où suis-je sollicité ?</h2>
+                        <h1>Best service</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="about__services__item">
+                        <div class="about__services__item__pic set-bg" data-setbg="{% static 'img/services/11.png' %}">
+                            <div class="icon" style="background: #CCB84A">
+                                <img src="{% static 'img/services/as-icon-1.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="about__services__item__text">
+                            <h4>Mariages</h4>
+                            <p>Votre union, notre passion. Rendons votre grand jour inoubliable. Des moments de bonheur partagés pour une journée parfaite.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="about__services__item">
+                        <div class="about__services__item__pic set-bg" data-setbg="{% static 'img/services/3.png' %}">
+                            <div class="icon" style="background: #CCB84A">
+                                <img src="{% static 'img/services/as-icon-2.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="about__services__item__text">
+                            <h4>Clubs et Restau</h4>
+                            <p>Où la bonne nourriture rencontre une atmosphère vibrante. Bienvenue dans notre monde de délices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="about__services__item">
+                        <div class="about__services__item__pic set-bg" data-setbg="{% static 'img/services/4.png' %}">
+                            <div class="icon" style="background: #CCB84A">
+                                <img src="{% static 'img/services/as-icon-3.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="about__services__item__text">
+                            <h4>Evénements d'entreprise</h4>
+                            <p>De grandes idées, des collaborations fructueuses. Ensemble, créons des événements mémorables.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Services Section End -->
+
+
+    
+{% endblock content %}
+ 

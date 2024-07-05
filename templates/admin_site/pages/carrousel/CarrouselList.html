@@ -1,0 +1,34 @@
+{% extends "admin_site/main.html" %}
+
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Liste des Carrousels</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for carrousel in carrousels %}
+            <tr>
+                <td><img src="{{ carrousel.image.url }}" alt="{{ carrousel.title }}" width="100"></td>
+                <td>
+                    <a href="{% url 'CarrouselUpdate' carrousel.id %}" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="{% url 'CarrouselDelete' carrousel.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'CarrouselCreate' %}" class="btn btn-success mt-3">Ajouter un Carrousel</a>
+</div>
+<br><br><br><br>
+{% endblock %}

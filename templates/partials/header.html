@@ -1,0 +1,37 @@
+{% load static %}
+<!-- Header Section Begin -->
+    <header class="header" style="background: black;" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}"><img src="{% static 'img/lgo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="{% url 'home' %}">Accueil</a></li>
+                                <li><a href="{% url 'discography' %}">Discographie</a></li>
+                                <li><a href="{% url 'about' %}">A propos</a></li>
+                                <li><a href="{% url 'tours' %}">Concerts</a></li>
+                                <li><a href="{% url 'videos' %}">Vidéos</a></li>
+                                <li><a href="{% url 'join' %}">Contact</a></li>
+                                <li><a href="{% url 'univers' %}">L'univers de Sheyi</a></li> 
+                            </ul>
+                        </nav>
+                        <div class="header__right__social">
+                            <a href="https://www.facebook.com/sheyihr?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/@RAPHAELSHEYI"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/invites/contact/?i=1f6hmvsggxrzp&utm_content=eyaecc"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@rsheyi?_t=8lTPyTY8em6&_r=1"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="{% url 'administration' %}"><i class="fa-solid fa-lock"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"  style="color:ccb84a"></div>
+        </div>
+    </header>
+<!-- Header Section End -->

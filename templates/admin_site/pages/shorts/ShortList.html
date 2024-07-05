@@ -1,0 +1,41 @@
+{% extends 'admin_site/main.html' %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Liste des Shorts</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vidéo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for short in shorts %}
+            <tr>
+                <td>{{ short.id }}</td>
+                <td>
+                    <video width="320" height="240" controls>
+                        <source src="{{ short.video.url }}" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'ShortUpdate' short.id %}">Modifier</a>
+                    <form action="{% url 'ShortDelete' short.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-success mt-3" href="{% url 'ShortCreate' %}">Ajouter une petite vidéo</a>
+</div>
+<br><br><br><br>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'admin_site/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .reset-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .reset-form {
+        background-color: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .reset-title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-control {
+        margin-bottom: 20px;
+    }
+
+    .reset-btn {
+        width: 100%;
+    }
+</style>
+
+<div class="reset-container">
+    <div class="reset-form">
+        <h4 class="reset-title">Créer l'user administrateur</h4>
+        <form method="POST" action="{% url 'admin-user-create' %}" class="log-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="username" name="username" id="username" class="form-control" placeholder="Username" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary reset-btn">Créer</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

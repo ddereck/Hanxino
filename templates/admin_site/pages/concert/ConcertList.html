@@ -1,0 +1,45 @@
+{% extends "admin_site/main.html" %}
+
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Liste des Concerts</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Date</th>
+                <th>Titre</th>
+                <th>Lieu</th>
+                <th>Heure</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for concert in concerts %}
+            <tr>
+                <td><img src="{{ concert.image.url }}" alt="{{ concert.image.name }}" style="width: 100px; height: auto;"></td>
+                <td>{{ concert.date }}</td>
+                <td>{{ concert.titre }}</td>
+                <td>{{ concert.lieu }}</td>
+                <td>{{ concert.heure }}</td>
+                <td>{{ concert.description }}</td>
+                <td>{{ concert.prix }}</td>
+                <td>
+                    <a href="{% url 'ConcertUpdate' concert.id %}" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="{% url 'ConcertDelete' concert.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'ConcertCreate' %}" class="btn btn-success mt-3">Ajouter un nouveau concert</a>
+</div>
+<br><br><br><br>
+{% endblock %}

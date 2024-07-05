@@ -1,0 +1,38 @@
+{% extends 'admin_site/main.html' %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Lifestyle Photos</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lifestyle in lifestyles %}
+            <tr>
+                <td>{{ lifestyle.id }}</td>
+                <td>
+                    <img src="{{ lifestyle.photo.url }}" width="150" height="150" alt="Lifestyle Photo">
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="{% url 'LifestyleUpdate' lifestyle.id %}">Modifier</a>
+                    <form action="{% url 'LifestyleDelete' lifestyle.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-success mt-3" href="{% url 'LifestyleCreate' %}">Ajouter une photo</a>
+</div>
+<br><br><br><br>
+{% endblock %}

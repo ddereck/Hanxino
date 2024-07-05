@@ -1,0 +1,257 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Hero Section Begin -->
+    <br><br><br><br><br>
+    <section class="hero">
+        <div class="container">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for carrousel in carrousels %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ carrousel.image.url }}" class="d-block w-100" alt="">
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+                    <div class="hero__text">
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <span>Nouveau Single</span>
+                            {% for morceau in morceaus %}
+                                <h1>{{morceau.titre}}</h1>
+                                <p>{{morceau.description}}</p>
+                                <a href="{{morceau.video}}" class="play-btn video">
+                                    <i class="fa fa-play" style="color: #ccb84a"></i>
+                                </a>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="linear__icon">
+            <i class="fa fa-angle-double-down" style="color: #CCB84A"></i>
+        </div>
+        
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Event Section Begin -->
+    <section class="event spad">
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>Evénements à venir</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="event__slider owl-carousel">
+                            {% for evenement in evenements %}
+                                    <div class="col-lg-4">
+                                        <div class="event__item">
+                                            <div class="event__item__pic set-bg" data-setbg="{{ evenement.image.url }}">
+                                                <div class="tag-date">
+                                                    <a href="{{ evenement.cover.url }}" class="image">
+                                                        <span style="background: #CCB84A">{{evenement.date}}</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="event__item__text">
+                                                <h4>{{evenement.titre}}</h4>
+                                                <p><i class="fa fa-map-marker" style="color: #CCB84A"></i>{{evenement.lieu}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            {% endfor %}
+                        </div>
+                </div>                   
+        </div>
+    </section>
+    <!-- Event Section End -->
+
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="row">
+                {% for artiste in artistes %}
+                    <div class="col-lg-6">
+                        <div class="about__pic" style="height: auto;">
+                            <img src="{{ artiste.image.url }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about__text">
+                            <div class="section-title">
+                                <h2>{{artiste.nom}}</h2>
+                                <h1>Me connaître</h1>
+                            </div>
+                                <p>{{artiste.description}}</p>
+                            <a href="{% url 'join' %}"><i class="primary-btn" style="background: #CCB84A; color : black">ME CONTACTER</i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="services__left set-bg" data-setbg="{% static 'img/services/3.png' %}">
+                    </div>
+                </div>
+                <div class="col-lg-6 p-0">
+                    <div class="row services__list">
+                        <div class="col-lg-6 p-0 order-lg-1 col-md-6 order-md-1">
+                            <div class="service__item deep-bg" style="background: #ccb84a; opacity: 0.95">
+                                <h4>Mariages</h4>
+                                <p>L'amour est dans les détails. Laissez-nous créer des souvenirs magiques pour votre mariage.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-0 order-lg-2 col-md-6 order-md-2">
+                            <div class="service__item" style="background: black">
+                                <h4>Clubs & Restau</h4>
+                                <p>Une ambiance unique, des saveurs exquises. Vivez une expérience culinaire inoubliable avec nous.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-0 order-lg-4 col-md-6 order-md-4">
+                            <div class="service__item deep-bg" style="background: #ccb84a; opacity: 0.95">
+                                <h4>Baptêmes</h4>
+                                <p>Un nouveau départ, une célébration de la vie. Ensemble, faisons de vos jours de moments spéciaux.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-0 order-lg-3 col-md-6 order-md-3">
+                            <div class="service__item" style="background: black">
+                                <h4>Evénements d'entreprises</h4>
+                                <p>Innover, inspirer, célébrer. Avec nous, chaque événement d'entreprise devient extraordinaire.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Track Section Begin -->
+    <section class="track spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="section-title">
+                        <h2>Quelques Sorties</h2>
+                        <h1>Music podcast</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-lg-7 p-0">
+                        <div class="track__content nice-scroll">
+                            {% for audio in audios %}
+                            <div class="audio_player_container">
+                                <h4>{{ audio.titre }}</h4>
+                                <div class="audio_player">
+                                    <audio id="audio{{ audio.id }}" controls>
+                                        <source src="{{ audio.audio.url }}" type="audio/mp3">
+                                        Audio HTML5
+                                    </audio>
+                                    <div class="player_controls">
+                                        <div class="progress_bar">
+                                            <div class="current_progress"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-lg-5 p-0">
+                        <div class="track__pic">
+                            <img src="{% static 'img/3.png' %}" alt="">
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <!-- Track Section End -->
+
+    <!-- Youtube Section Begin -->
+    <section class="youtube spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Quelques Clips </h2>
+                        <h1>Succès Youtube </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for youtubevd in youtubevds %}
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="youtube__item">
+                        <div class="youtube__item__pic set-bg" data-setbg="{{youtubevd.photo.url}}">
+                            <a href="{{youtubevd.video}}" class="play-btn video"><i class="fa fa-play" style="color: #CCB84A"></i></a>
+                        </div>
+                        <div class="youtube__item__text">
+                            <h4>{{youtubevd.description}}</h4>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+    <!-- Youtube Section End -->
+
+    <!-- Countdown Section Begin -->
+   {% include "partials/countdown.html" %}
+    <!-- Countdown Section End -->
+
+
+    <script>
+        //Carrousel
+            $(document).ready(function(){
+                $('.carousel').carousel({
+                    interval: 4000 
+                });
+            });
+
+
+
+            // Tracks
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajout des gestionnaires d'événements pour les boutons de lecture
+            var playButtons = document.querySelectorAll('.play-btn');
+            playButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var audioId = this.getAttribute('data-id');
+                    var audio = document.getElementById('audio' + audioId);
+                    
+                    // Vérifier si l'audio est en pause ou en lecture
+                    if (audio.paused) {
+                        audio.play();
+                        this.textContent = 'Pause';
+                    } else {
+                        audio.pause();
+                        this.textContent = 'Lecture';
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock content %}

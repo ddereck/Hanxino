@@ -1,0 +1,33 @@
+{% extends "admin_site/main.html" %}
+
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Album Photos</h1>
+        <a href="{% url 'administration' %}" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for album in albums %}
+        <tr>
+            <td><img src="{{ album.image.url }}" alt="{{ album.image.name }}" style="width: 100px; height: auto;"></td>
+            <td>
+                <a href="{% url 'AlbumUpdate' album.id %}" class="btn btn-primary btn-sm">Modifier</a>
+                <a href="{% url 'AlbumDelete' album.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'AlbumCreate' %}" class="btn btn-success mt-3">Ajouter une photo</a>
+</div>
+<br><br><br><br>
+{% endblock %}
